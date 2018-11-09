@@ -1,0 +1,57 @@
+{
+  "presets": [
+    ["env",  { "modules": false, "useBuiltIns": true }],
+    "es2015",
+    "stage-0",
+    "react"
+  ],
+  "comments": true,
+  "plugins": [
+    "transform-runtime",
+    "transform-decorators-legacy",
+    "syntax-dynamic-import",
+    "react-loadable/babel",
+    "react-hot-loader/babel",
+    [
+      "import",
+      {
+        "libraryName": "antd"
+      }
+    ]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        [
+          "transform-remove-console",
+          {
+            "exclude": [
+              "info"
+            ]
+          }
+        ]
+      ]
+    },
+    "development": {
+      "plugins": [
+        [
+          "react-transform",
+          {
+            "transforms": [
+              {
+                "transform": "react-transform-catch-errors",
+                "imports": [
+                  "react",
+                  "redbox-react"
+                ],
+                "locals": [
+                  "module"
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  }
+}
